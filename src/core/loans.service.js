@@ -9,4 +9,9 @@ export default class LoansService {
         return this.http.get('http://localhost:3000/loans')
             .then(response=>response.data);
     }
+
+    get(id) {
+        return this.http.get(`http://localhost:3000/loans/${id}`)
+            .then(response=>response.data);
+    }
 }

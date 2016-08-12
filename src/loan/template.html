@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <a href="/" class="btn btn-link">&larr; Back</a>
+            <div class="jumbotron bg-inverse text-muted">
+                <small class="text-muted">{{vm.loan.id}}</small>
+                <h1 class="display-3">{{vm.loan.name}}</h1>
+                <hr class="m-y-2 bg-faded">
+
+                <p class="lead">
+                <h1>
+                    <span class="tag tag-default">{{vm.loan.amount | currency}}</span>
+                </h1>
+
+                <div class="text-xs-center text-muted">Processing &hellip; {{vm.loan.progress}}%</div>
+                <progress class="progress progress-bar-striped" value="{{vm.loan.progress}}" max="100"></progress>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-lg-4" ng-repeat="x in vm.loans">
+            <div class="card card-block">
+                <h4 class="card-title">{{x.name}}</h4>
+                <p class="card-text">
+                <h2 class=text-muted>
+                    {{x.amount | currency}}
+                </h2>
+
+                <small class="text-muted">Processing:</small>
+                <progress class="progress" value="{{x.progress}}" max="100"></progress>
+                </p>
+                <a href="/loan/{{x.id}}" class="btn btn-primary card-link">View</a>
+            </div>
+        </div>
+    </div>
+</div>
