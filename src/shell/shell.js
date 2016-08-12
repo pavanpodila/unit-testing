@@ -1,8 +1,11 @@
 import './shell.scss';
 
 class Controller {
-    static $inject = [];
+    static $inject = ['env'];
 
+    constructor(env) {
+        this.title = env.title;
+    }
 }
 
 export default {

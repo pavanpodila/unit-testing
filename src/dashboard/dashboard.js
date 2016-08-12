@@ -17,7 +17,7 @@ class Controller {
 }
 
 export default {
-    template: require('./template.html'),
+    template: require('./dashboard.html'),
     controller: Controller,
     controllerAs: 'vm'
 };

@@ -4,8 +4,8 @@ import angular from 'angular';
 import 'angular-route';
 
 import Shell from './shell/shell';
-import Dashboard from './dashboard';
-import Loan from './loan';
+import Dashboard from './dashboard/dashboard';
+import Loan from './loan/loan';
 
 import LoansService from './core/loans.service';
 
@@ -14,6 +14,10 @@ angular.module('app', ['ngRoute'])
     .component('dashboard', Dashboard)
     .component('loan', Loan)
     .service('loansService', LoansService)
+    .constant('env', {
+        title: 'e-Portal',
+        apiUrl: 'http://localhost:3000'
+    })
     .config(($routeProvider, $locationProvider)=>{
         $routeProvider.when('/', {
             template: '<dashboard></dashboard>'
@@ -22,7 +26,10 @@ angular.module('app', ['ngRoute'])
             template: '<loan></loan>'
         });
 
-        $locationProvider.html5Mode(true);
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
     });
 
 document.body.innerHTML = '<shell></shell>';

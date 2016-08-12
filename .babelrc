@@ -1,0 +1,22 @@
+{
+    "presets": [
+        "es2015",
+        "stage-1"
+    ],
+    "plugins": [
+        "transform-decorators-legacy",
+        "transform-runtime"
+    ],
+    "env": {
+        "test": {
+            "plugins": [
+                [
+                    "__coverage__",
+                    {
+                        "ignore": ["*.spec.*", "test.index.js", "*angular*"]
+                    }
+                ]
+            ]
+        }
+    }
+}

@@ -19,7 +19,7 @@ class Controller {
 }
 
 export default {
-    template: require('./template.html'),
+    template: require('./loan.html'),
     controller: Controller,
     controllerAs: 'vm'
 };

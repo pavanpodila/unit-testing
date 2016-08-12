@@ -19,13 +19,6 @@ module.exports = {
         filename: '[name].js',
         publicPath: '/'
     },
-    plugins: [
-        new ExtractTextPlugin('main.css'),
-        new HtmlWebpackPlugin({
-            template: path.resolve('src', 'index.html'),
-            inject: 'body'
-        })
-    ],
     resolve: {
         extensions: ['', '.js', '.json']
     },
@@ -34,17 +27,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 include: path.resolve('src'),
-                loader: 'babel',
-                query: {
-                    presets: [
-                        'es2015',
-                        'stage-1'
-                    ],
-                    plugins: [
-                        'transform-decorators-legacy',
-                        'transform-runtime'
-                    ]
-                }
+                loader: 'babel'
             },
             {
                 test: /\.html$/,
@@ -64,6 +47,18 @@ module.exports = {
             }
         ]
     },
+
+    plugins: [
+        new ExtractTextPlugin({
+            filename: 'main.css',
+            allChunks: true
+        }),
+        new HtmlWebpackPlugin({
+            template: path.resolve('src', 'index.html'),
+            inject: 'body'
+        })
+    ],
+
 
 
 };
