@@ -12,7 +12,8 @@
                 </h1>
 
                 <div class="text-xs-center text-muted">Processing &hellip; {{vm.loan.progress}}%</div>
-                <progress class="progress progress-bar-striped" value="{{vm.loan.progress}}" max="100"></progress>
+
+                <progress-indicator value="vm.loan.progress"></progress-indicator>
                 </p>
             </div>
         </div>

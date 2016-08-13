@@ -6,6 +6,7 @@ import 'angular-route';
 import Shell from './shell/shell';
 import Dashboard from './dashboard/dashboard';
 import Loan from './loan/loan';
+import ProgressIndicator from './core/progress-indicator/progress-indicator';
 
 import LoansService from './core/loans.service';
 
@@ -13,6 +14,7 @@ angular.module('app', ['ngRoute'])
     .component('shell', Shell)
     .component('dashboard', Dashboard)
     .component('loan', Loan)
+    .component('progressIndicator', ProgressIndicator)
     .service('loansService', LoansService)
     .constant('env', {
         title: 'e-Portal',
