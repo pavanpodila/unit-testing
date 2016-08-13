@@ -42,13 +42,18 @@ module.exports = {
                 loader: 'json'
             },
             {
-                test: /\.(eot|ttf|woff|woff2)$/,
+                test: /\.(eot|ttf|woff|woff2|svg)$/,
                 loader: 'url?limit=25000'
             }
         ]
     },
 
     plugins: [
+        new webpack.ProvidePlugin({
+            'jQuery': 'jquery',
+            '$': 'jquery',
+            'window.Tether': 'tether',
+        }),
         new ExtractTextPlugin({
             filename: 'main.css',
             allChunks: true
@@ -58,7 +63,6 @@ module.exports = {
             inject: 'body'
         })
     ],
-
 
 
 };

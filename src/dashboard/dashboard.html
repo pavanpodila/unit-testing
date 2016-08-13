@@ -1,9 +1,18 @@
 <div class="container">
     <div class="row">
+        <div class="col-sm-6">
+            <div class="btn btn-success" ng-click="vm.launchAddLoanDialog()">Add Loan</div>
+            <add-loan-dialog ng-if="vm.dialogVisible" on-close="vm.onDialogClosed(loan)"></add-loan-dialog>
+        </div>
+    </div>
+    <div class="row m-t-1">
         <div class="col-sm-6 col-lg-4" ng-repeat="x in vm.loans">
             <div class="card card-block">
                 <h4 class="card-title">{{x.name}}</h4>
                 <p class="card-text">
+                <small class="text-muted">
+                    Created: <strong>{{x.created | date}}</strong>
+                </small>
                 <h2 class=text-muted>
                     {{x.amount | currency}}
                 </h2>

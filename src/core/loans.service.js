@@ -1,17 +1,27 @@
 export default class LoansService {
-    static $inject = ['$http'];
+    static $inject = ['$http', 'env'];
 
-    constructor($http) {
+    constructor($http, env) {
         this.http = $http;
+        this.apiUrl = env.apiUrl;
     }
 
     getAll() {
-        return this.http.get('http://localhost:3000/loans')
+        return this.http.get(`${this.apiUrl}/loans`)
             .then(response=>response.data);
     }
 
     get(id) {
-        return this.http.get(`http://localhost:3000/loans/${id}`)
+        return this.http.get(`${this.apiUrl}/loans/${id}`)
             .then(response=>response.data);
+    }
+
+    addLoan(loan) {
+        const data = Object.assign({
+            id: `${Date.now()}`,
+            progress: 0
+        }, loan);
+
+        return this.http.post(`${this.apiUrl}/loans`, data);
     }
 }

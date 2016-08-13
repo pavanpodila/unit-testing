@@ -13,7 +13,10 @@ class Controller {
 
     fetch() {
         this.loansService.get(this.params.id)
-            .then(data=>this.loan = data);
+            .then(data=>{
+                data.created = new Date(data.created);
+                this.loan = data;
+            });
     }
 
 }

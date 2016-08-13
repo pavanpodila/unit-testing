@@ -3,6 +3,7 @@ class Controller {
 
     loansService = null;
     loans = [];
+    dialogVisible = false;
 
     constructor(loansService) {
         this.loansService = loansService;
@@ -10,10 +11,35 @@ class Controller {
     }
 
     fetch() {
-        this.loansService.getAll()
-            .then(data=>this.loans = data);
+        return this.loansService.getAll()
+            .then(data=> {
+                this.loans = data
+                    .map(x=>{
+                        x.created = new Date(x.created);
+                        return x;
+                    })
+                    .sort((a, b)=>a.created - b.created);
+            });
     }
 
+    launchAddLoanDialog() {
+        this.dialogVisible = true;
+    }
+
+    onDialogClosed(loan) {
+        if (!loan) {
+            this.dialogVisible = false;
+            return;
+        }
+
+        this.loansService.addLoan(loan)
+            .then(()=> {
+                return this.fetch();
+            })
+            .then(()=> {
+                this.dialogVisible = false;
+            });
+    }
 }
 
 export default {
