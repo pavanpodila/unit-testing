@@ -18,7 +18,7 @@ class Controller {
                         x.created = new Date(x.created);
                         return x;
                     })
-                    .sort((a, b)=>a.created - b.created);
+                    .sort((a, b)=>b.created - a.created);
             });
     }
 

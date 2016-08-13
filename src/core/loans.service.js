@@ -19,7 +19,8 @@ export default class LoansService {
     addLoan(loan) {
         const data = Object.assign({
             id: `${Date.now()}`,
-            progress: 0
+            progress: 10,
+            created: new Date()
         }, loan);
 
         return this.http.post(`${this.apiUrl}/loans`, data);
