@@ -17,7 +17,7 @@
                     {{x.amount | currency}}
                 </h2>
 
-                <small class="text-muted">Processing:</small>
+                <small class="text-muted">status: {{x.progress | status}}</small>
                 <progress-indicator value="x.progress"></progress-indicator>
                 </p>
                 <a href="/loan/{{x.id}}" class="btn btn-primary card-link">View</a>

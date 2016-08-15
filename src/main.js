@@ -7,10 +7,11 @@ import 'angular-route';
 import Shell from './shell/shell';
 import Dashboard from './dashboard/dashboard';
 import Loan from './loan/loan';
+import statusFilter from './core/filter/status.filter';
 import ProgressIndicator from './core/progress-indicator/progress-indicator';
 import AddLoanDialog from './dashboard/add-loan-dialog/add-loan-dialog';
 
-import LoansService from './core/loans.service';
+import LoansService from './core/service/loans.service';
 
 angular.module('app', ['ngRoute'])
     .component('shell', Shell)
@@ -18,6 +19,7 @@ angular.module('app', ['ngRoute'])
     .component('loan', Loan)
     .component('progressIndicator', ProgressIndicator)
     .component('addLoanDialog', AddLoanDialog)
+    .filter('status', statusFilter)
     .service('loansService', LoansService)
     .constant('env', {
         title: 'e-Portal',

@@ -14,7 +14,7 @@
                     <span class="tag tag-default">{{vm.loan.amount | currency}}</span>
                 </h1>
 
-                <div class="text-xs-center text-muted">Processing &hellip; {{vm.loan.progress}}%</div>
+                <div class="text-xs-center text-muted">Processing &hellip; {{vm.loan.progress}}% ({{vm.loan.progress | status}})</div>
 
                 <progress-indicator value="vm.loan.progress"></progress-indicator>
                 </p>

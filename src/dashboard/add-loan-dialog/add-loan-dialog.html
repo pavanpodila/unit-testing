@@ -10,23 +10,32 @@
             </div>
 
             <div class="modal-body">
-                <form>
-                    <div class="form-group">
+                <form novalidate name="form">
+                    <div class="form-group"
+                         ng-class="{'has-danger': form.name.$touched && form.name.$error.required}">
                         <label>Name</label>
                         <input type="text" class="form-control"
-                               ng-model="vm.loan.name">
+                               name="name"
+                               ng-model="vm.loan.name" required
+                               ng-class="{'form-control-danger': form.name.$touched && form.name.$error.required}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group"
+                         ng-class="{'has-danger': form.amount.$touched && form.amount.$error.required}">
                         <label>Amount</label>
                         <input type="number" class="form-control"
-                               ng-model="vm.loan.amount">
+                               name="amount"
+                               ng-model="vm.loan.amount" required
+                               ng-class="{'form-control-danger': form.amount.$touched && form.amount.$error.required}">
                     </div>
                 </form>
             </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" ng-click="vm.cancel()">Cancel</button>
-                <button type="button" class="btn btn-primary" ng-click="vm.save()">Save</button>
+                <button type="button" class="btn btn-primary"
+                        ng-click="vm.save()"
+                        ng-disabled="form.$invalid">Save
+                </button>
             </div>
         </div>
     </div>
