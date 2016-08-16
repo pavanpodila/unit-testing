@@ -12,6 +12,7 @@ import ProgressIndicator from './core/progress-indicator/progress-indicator';
 import AddLoanDialog from './dashboard/add-loan-dialog/add-loan-dialog';
 
 import LoansService from './core/service/loans.service';
+import SessionService from './core/service/session.service';
 
 angular.module('app', ['ngRoute'])
     .component('shell', Shell)
@@ -21,6 +22,7 @@ angular.module('app', ['ngRoute'])
     .component('addLoanDialog', AddLoanDialog)
     .filter('status', statusFilter)
     .service('loansService', LoansService)
+    .factory('sessionService', SessionService)
     .constant('env', {
         title: 'e-Portal',
         apiUrl: 'http://localhost:3000'

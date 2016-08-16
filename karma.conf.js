@@ -46,9 +46,6 @@ module.exports = function (config) {
                 {
                     type: 'html',
                     subdir: 'html'
-                },
-                {
-                    type: 'text',
                 }
             ]
         },

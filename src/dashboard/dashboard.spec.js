@@ -1,44 +1,54 @@
-import ngHelper from '../inject-angular';
-
 describe('Dashboard', ()=> {
 
     let $componentController,
-        $httpBackend;
+        service,
+        rootScope;
 
-    ngHelper(({componentController, httpBackend})=> {
-        $componentController = componentController;
-        $httpBackend = httpBackend;
-    });
+    beforeEach(angular.mock.module('app'));
+
+    beforeEach(angular.mock.module(($provide)=> {
+        $provide.factory('loansService', ($q)=> {
+            return {
+                getAll() {
+                    return $q((resolve)=> {
+                        resolve([{id: '1'}, {id: '2'}]);
+                    });
+                },
+
+                get(id) {
+                    return $q((resolve)=> {
+                        resolve({id: '1'});
+                    });
+                }
+            };
+        });
+    }));
+
+
+    beforeEach(angular.mock.inject((_$componentController_, $rootScope, loansService)=> {
+        service = loansService;
+        $componentController = _$componentController_;
+        rootScope = $rootScope;
+    }));
 
     it('should have an instance of loansService', ()=> {
         const ctrl = $componentController('dashboard');
 
+        // rootScope.$digest();
         expect(ctrl.loansService).toBeDefined();
     });
 
-    describe('http calls', ()=> {
-        afterEach(()=> {
-            $httpBackend.verifyNoOutstandingExpectation();
-            $httpBackend.verifyNoOutstandingRequest();
-        });
+    it('should request the loans', ()=> {
+        spyOn(service, 'getAll').and.callThrough();
+        const ctrl = $componentController('dashboard');
 
-        it('should request the loans', ()=> {
+        expect(service.getAll).toHaveBeenCalled();
+    });
 
-            $httpBackend.expectGET(/loans/).respond([]);
-            const ctrl = $componentController('dashboard');
-
-            $httpBackend.flush();
-        });
-
-        it('should store the loans', ()=> {
-            $httpBackend.expectGET(/loans/).respond([
-                {name: '1'}, {name: '2'}
-            ]);
-            const ctrl = $componentController('dashboard');
-            $httpBackend.flush();
-
-            expect(ctrl.loans.length).toEqual(2);
-        });
+    it('should store the loans', ()=> {
+        const ctrl = $componentController('dashboard');
+        rootScope.$digest();
+        expect(ctrl.loans.length).toEqual(2);
     });
 
 });

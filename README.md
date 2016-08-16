@@ -1,14 +1,17 @@
 # unit-testing
 Unit Testing techniques
 
-- Plain logic
-- AJAX calls with `$httpBackend`
-- Controllers
-- Directives
-- Components
-- Services
-- Time based with `$timeout`
-- Testing promises with `$rootScope.apply()`
+- [ ] Plain logic
+- [x] AJAX calls with `$httpBackend`
+- [x] Controllers
+- [x] Directives
+- [x] Components
+- [x] Services
+- [x] Time based with `$timeout`
+- [x] Testing promises with `$rootScope.apply()`
+- [x] Mocking with Spies, Stubs
+- [x] Mocking services with `$provide`
+- [ ] Data driven tests
 
 ## Tools ##
 
