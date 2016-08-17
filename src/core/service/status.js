@@ -1,7 +1,7 @@
 export default (input)=> {
     const value = parseFloat(input, 10);
 
-    if (input >= 0 && input < 20) {
+    if (value >= 0 && value < 20) {
         return {
             label: 'Initiated',
             className: 'progress-danger'
@@ -9,23 +9,27 @@ export default (input)=> {
 
     }
 
-    if (input >= 20 && input < 40) {
+    if (value >= 20 && value < 40) {
         return {
             label: 'Processing',
             className: 'progress-warning'
         };
     }
 
-    if (input >= 40 && input < 60) {
+    if (value >= 40 && value < 60) {
         return {
             label: 'Approving',
             className: 'progress-info'
         };
     }
 
-    return {
-        label: 'Finalizing',
-        className: 'progress-success'
-    };
+    if (value >= 60 && value <= 100) {
+        return {
+            label: 'Finalizing',
+            className: 'progress-success'
+        };
+    }
+
+    throw new Error('Invalid Input. Must be between 0-100');
 
 };

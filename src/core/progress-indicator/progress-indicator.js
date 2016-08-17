@@ -1,4 +1,4 @@
-import status from '../service/status.service';
+import status from '../service/status';
 
 class Controller {
     className = 'progress-info';

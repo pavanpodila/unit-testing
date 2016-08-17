@@ -7,6 +7,7 @@ Unit Testing techniques
 - [x] Directives
 - [x] Components
 - [x] Services
+- [x] Filter
 - [x] Time based with `$timeout`
 - [x] Testing promises with `$rootScope.apply()`
 - [x] Mocking with Spies, Stubs
