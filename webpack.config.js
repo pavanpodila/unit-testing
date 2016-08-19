@@ -3,8 +3,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = {
-    devtool: 'cheap-module-source-map',
+module.exports = (env)=>({
+    devtool: env === 'test' ? 'inline-source-map' : 'cheap-module-source-map',
     devServer: {
         historyApiFallback: true,
         inline: true,
@@ -65,4 +65,4 @@ module.exports = {
     ],
 
 
-};
+});

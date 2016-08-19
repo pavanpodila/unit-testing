@@ -4,10 +4,13 @@
   "description": "Unit Testing techniques",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --env dev",
     "server": "json-server db.js --watch",
     "test": "karma start",
-    "test:watch": "karma start --auto-watch --no-single-run"
+    "test:watch": "karma start --auto-watch --no-single-run",
+    "protractor:start": "protractor protractor.conf.js",
+    "protractor:server": "webdriver-manager start",
+    "protractor:update": "webdriver-manager update"
   },
   "repository": {
     "type": "git",
@@ -45,6 +48,8 @@
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.8.0",
     "node-sass": "^3.8.0",
+    "phantomjs-prebuilt": "^2.1.12",
+    "protractor": "^4.0.3",
     "raw-loader": "^0.5.1",
     "sass-loader": "^4.0.0",
     "url-loader": "^0.5.7",

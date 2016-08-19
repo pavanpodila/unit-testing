@@ -3,9 +3,9 @@ import status from '../service/status';
 class Controller {
     className = 'progress-info';
 
-    $onChanges(change) {
-        if (change.value) {
-            this.setProgressClass(change.value.currentValue);
+    $onChanges({value: {currentValue}}) {
+        if (currentValue) {
+            this.setProgressClass(currentValue);
         }
     }
 
