@@ -5,10 +5,10 @@ exports.config = {
     specs: ['e2e/**/*.spec.js'],
 
     multiCapabilities: [
-        {
-            browserName: 'chrome',
-            directConnect: true
-        },
+        // {
+        //     browserName: 'chrome',
+        //     directConnect: true
+        // },
         {
             browserName: 'phantomjs',
             'phantomjs.binary.path': require('phantomjs-prebuilt').path
