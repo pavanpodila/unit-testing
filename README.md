@@ -12,7 +12,7 @@ Unit Testing techniques
 - [x] Testing promises with `$rootScope.apply()`
 - [x] Mocking with Spies, Stubs
 - [x] Mocking services with `$provide`
-- [ ] Data driven tests
+- [x] Data driven tests
 
 ## Tools ##
 
@@ -20,13 +20,13 @@ Unit Testing techniques
 - Karma
 - Babel
 - Babel Coverage
+- Webpack
 
 ## Features of the e-Portal
 
-- Show a welcome message after 1 second
 - Show a dashboard of loans
 - View loan detail
 - Show progress of loan completion
 - Add a loan
 - Show sorted list of loans
-- Filter to do some formatting
+- Use of `$filter` to show status of loan

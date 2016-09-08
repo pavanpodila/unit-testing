@@ -31,6 +31,7 @@ describe('Session Service', ()=> {
             .then(x=>result = x);
 
         timeout.flush(501);
+        // rootScope.$digest();
 
         expect(result).toEqual(true);
     });
