@@ -1,7 +1,7 @@
 # unit-testing
 Unit Testing techniques
 
-- [ ] Plain logic
+- [x] Plain logic
 - [x] AJAX calls with `$httpBackend`
 - [x] Controllers
 - [x] Directives
