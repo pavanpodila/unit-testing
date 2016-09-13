@@ -2,7 +2,8 @@ describe('Dashboard', ()=> {
 
     let $componentController,
         service,
-        rootScope;
+        rootScope,
+        $compile;
 
     beforeEach(angular.mock.module('app'));
 
@@ -11,7 +12,8 @@ describe('Dashboard', ()=> {
             return {
                 getAll() {
                     return $q((resolve)=> {
-                        resolve([{id: '1'}, {id: '2'}]);
+                        resolve([{id: '1', created: new Date()}, {id: '2', created: new Date()}]);
+
                     });
                 },
 
@@ -25,10 +27,11 @@ describe('Dashboard', ()=> {
     }));
 
 
-    beforeEach(angular.mock.inject((_$componentController_, $rootScope, loansService)=> {
+    beforeEach(angular.mock.inject((_$componentController_, $rootScope, loansService, _$compile_)=> {
         service = loansService;
         $componentController = _$componentController_;
         rootScope = $rootScope;
+        $compile = _$compile_;
     }));
 
     it('should have an instance of loansService', ()=> {
@@ -49,6 +52,28 @@ describe('Dashboard', ()=> {
         const ctrl = $componentController('dashboard');
         rootScope.$digest();
         expect(ctrl.loans.length).toEqual(2);
+    });
+
+
+    describe('when "Add Loan" is invoked', () => {
+
+        let element;
+
+        beforeEach(() => {
+            element = $compile('<dashboard></dashboard>')(rootScope.$new());
+            rootScope.$digest();
+
+            // We have to use $ instead of angular.element for better selector lookup
+            // angular.element only supports tag-lookup
+            const el = document.querySelector('dashboard [data-action]');
+            $(element).find('[data-action="add-loan"]').click();
+
+        });
+
+        it('should launch the dialog', () => {
+            expect(element.find('add-loan-dialog').length).toEqual(1);
+        });
+
     });
 
 });
