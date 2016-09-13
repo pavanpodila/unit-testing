@@ -61,17 +61,17 @@ describe('Dashboard', ()=> {
 
         beforeEach(() => {
             element = $compile('<dashboard></dashboard>')(rootScope.$new());
-            rootScope.$digest();
 
             // We have to use $ instead of angular.element for better selector lookup
             // angular.element only supports tag-lookup
             const el = document.querySelector('dashboard [data-action]');
             $(element).find('[data-action="add-loan"]').click();
-
         });
 
         it('should launch the dialog', () => {
+            const controller = element.controller('dashboard');
             expect(element.find('add-loan-dialog').length).toEqual(1);
+            expect(controller.dialogVisible).toEqual(true);
         });
 
     });
