@@ -1,10 +1,9 @@
 var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-module.exports = (env)=>({
-    devtool: env === 'test' ? 'inline-source-map' : 'cheap-module-source-map',
+module.exports = {
+    devtool: process.env.NODE_ENV === 'test' ? 'inline-source-map' : 'cheap-module-source-map',
     devServer: {
         historyApiFallback: true,
         inline: true,
@@ -12,10 +11,10 @@ module.exports = (env)=>({
     },
 
     entry: {
-        main: path.resolve('src', 'main.js')
+        main: './src/main.js'
     },
     output: {
-        path: path.resolve('build'),
+        path: path.join(__dirname, 'build'),
         filename: '[name].js',
         publicPath: '/'
     },
@@ -26,7 +25,7 @@ module.exports = (env)=>({
         loaders: [
             {
                 test: /\.js$/,
-                include: path.resolve('src'),
+                include: path.join(__dirname, 'src'),
                 loader: 'babel'
             },
             {
@@ -35,7 +34,7 @@ module.exports = (env)=>({
             },
             {
                 test: /\.scss$/,
-                loader: ExtractTextPlugin.extract('css!sass')
+                loaders: ['style', 'css', 'sass']
             },
             {
                 test: /\.json$/,
@@ -54,15 +53,11 @@ module.exports = (env)=>({
             '$': 'jquery',
             'window.Tether': 'tether',
         }),
-        new ExtractTextPlugin({
-            filename: 'main.css',
-            allChunks: true
-        }),
         new HtmlWebpackPlugin({
-            template: path.resolve('src', 'index.html'),
+            template: path.join(__dirname, 'src/index.html'),
             inject: 'body'
         })
-    ],
+    ]
 
 
-});
+};
