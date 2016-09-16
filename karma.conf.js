@@ -1,6 +1,6 @@
 process.env.BABEL_ENV = 'test';
 
-const webpackConfig = require('./webpack.config')('test');
+const webpackConfig = require('./webpack.config');
 webpackConfig.entry = {};
 
 module.exports = function (config) {
