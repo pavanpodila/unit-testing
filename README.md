@@ -6,9 +6,12 @@
 1. Open [http://localhost:8080](http://localhost:8080) to see the app in action
 1. Run `npm test` to run the unit tests
 
+### Works on 
 
-# unit-testing
-Unit Testing techniques
+- Node 4.4.3
+- NPM 2.15.1
+
+# Unit Testing techniques
 
 - [x] Plain logic
 - [x] AJAX calls with `$httpBackend`
