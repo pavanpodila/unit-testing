@@ -1,3 +1,12 @@
+### How to run
+
+1. Clone this repo
+1. Run `npm install` in the folder where you cloned
+1. Run `npm start`
+1. Open [http://localhost:8080](http://localhost:8080) to see the app in action
+1. Run `npm test` to run the unit tests
+
+
 # unit-testing
 Unit Testing techniques
 
