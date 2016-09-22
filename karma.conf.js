@@ -29,7 +29,7 @@ module.exports = function (config) {
                 }
             ]
         },
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
         port: 9876,
         colors: true,
