@@ -11,7 +11,9 @@ class Controller {
     }
 
     $onInit() {
-        this.modalInstance = $(this.element).find('.modal').modal();
+        this.modalInstance = $(this.element).find('.modal').modal({
+            backdrop: 'static'
+        });
     }
 
     $onDestroy() {

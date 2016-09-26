@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-6">
-            <div class="btn btn-success" ng-click="vm.launchAddLoanDialog()">Add Loan</div>
+            <div class="btn btn-success" data-action="add-loan" ng-click="vm.launchAddLoanDialog()">Add Loan</div>
             <add-loan-dialog ng-if="vm.dialogVisible" on-close="vm.onDialogClosed(loan)"></add-loan-dialog>
         </div>
     </div>
