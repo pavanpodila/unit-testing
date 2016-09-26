@@ -19,13 +19,16 @@ describe('Hello World', () => {
 
 
     it('should have a greeting', () => {
+        pending();
     });
 
     it('should greet the person', () => {
+        pending();
     });
 
 
     it('should greet lazily default duration', (done) => {
+        pending();
         done();
     });
 
@@ -38,6 +41,7 @@ describe('Hello World', () => {
         });
 
         it('should greet after longer durations', () => {
+            pending();
         });
 
     });
