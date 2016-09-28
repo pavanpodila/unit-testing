@@ -13,7 +13,7 @@ describe('Shell', ()=> {
     beforeEach(angular.mock.module('app'));
     beforeEach(angular.mock.inject(storeDependencies));
 
-    it('should render the title', ()=> {
+    it('should have the title', ()=> {
         pending();
     });
 
