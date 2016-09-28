@@ -47,9 +47,10 @@ describe('Hello World', () => {
             jasmine.clock().uninstall();
         });
 
-        it('should greet after longer durations', () => {
+        it('should greet after longer durations', (done) => {
             obj.lazyGreet('fannie', (greeting)=>{
                 expect(greeting).toMatch('hello fannie');
+                done();
             }, 10000);
 
             jasmine.clock().tick(10000);
