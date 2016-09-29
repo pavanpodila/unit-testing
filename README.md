@@ -5,7 +5,7 @@
 1. Run `npm run server` in separate tab/process
 1. Run `npm start` in separate tab/process
 1. Open [http://localhost:8080](http://localhost:8080) to see the app in action
-1. Run `npm test` to run the unit tests
+1. Run `npm test` in separate tab/process, to run the unit tests
 
 ### Works on 
 
